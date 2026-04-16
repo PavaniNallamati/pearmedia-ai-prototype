@@ -1,6 +1,8 @@
 import { useState } from "react";
 import WorkflowText from "./components/WorkflowText";
 import WorkflowImage from "./components/WorkflowImage";
+import Navbar from "./components/Navbar";
+import ImageCard from "./ImageCard";
 
 export default function App() {
   const [tab, setTab] = useState("text");

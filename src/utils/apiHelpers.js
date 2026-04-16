@@ -1,25 +1,21 @@
 export const getEnhancedPrompt = async (input) => {
-  try {
-    const res = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_OPENAI_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages: [
-          { role: "system", content: "Enhance this prompt creatively" },
-          { role: "user", content: input },
-        ],
-      }),
-    });
+  const res = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.REACT_APP_OPENAI_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: "Enhance prompt creatively" },
+        { role: "user", content: input },
+      ],
+    }),
+  });
 
-    const data = await res.json();
-    return data.choices[0].message.content;
-  } catch {
-    return input;
-  }
+  const data = await res.json();
+  return data.choices[0].message.content;
 };
 
 export const generateImage = async (prompt) => {
@@ -50,7 +46,7 @@ export const analyzeImage = async (base64) => {
         contents: [
           {
             parts: [
-              { text: "Describe objects, colors, and style" },
+              { text: "Describe objects, colors and style" },
               {
                 inline_data: {
                   mime_type: "image/png",

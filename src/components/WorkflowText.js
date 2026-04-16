@@ -23,46 +23,31 @@ export default function WorkflowText() {
 
   return (
     <div className="space-y-4">
-      <textarea
-        className="w-full p-3 border rounded-xl"
+      <textarea className="w-full p-3 border rounded-xl"
         placeholder="Enter your idea..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
 
-      <button
-        onClick={handleEnhance}
-        className="bg-indigo-600 text-white px-4 py-2 rounded-xl"
-      >
+      <button onClick={handleEnhance} className="bg-indigo-600 text-white px-4 py-2 rounded-xl">
         Enhance Prompt
       </button>
 
-      {loading && <p className="text-indigo-500">Processing...</p>}
+      {loading && <p>Loading...</p>}
 
       {enhanced && (
         <>
-          <textarea
-            className="w-full p-3 border rounded-xl"
+          <textarea className="w-full p-3 border rounded-xl"
             value={enhanced}
             onChange={(e) => setEnhanced(e.target.value)}
           />
-
-          <button
-            onClick={handleGenerate}
-            className="bg-purple-600 text-white px-4 py-2 rounded-xl"
-          >
+          <button onClick={handleGenerate} className="bg-purple-600 text-white px-4 py-2 rounded-xl">
             Generate Image
           </button>
         </>
       )}
 
-      {image && (
-        <img
-          src={image}
-          alt="result"
-          className="rounded-xl shadow-lg mt-4"
-        />
-      )}
+      {image && <img src={image} alt="result" className="rounded-xl mt-4" />}
     </div>
   );
 }

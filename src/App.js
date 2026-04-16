@@ -12,21 +12,10 @@ export default function App() {
       </h1>
 
       <div className="flex justify-center gap-4 mb-6">
-        <button
-          onClick={() => setTab("text")}
-          className={`px-6 py-2 rounded-xl ${
-            tab === "text" ? "bg-indigo-600 text-white" : "bg-white"
-          }`}
-        >
+        <button onClick={() => setTab("text")} className="px-6 py-2 bg-indigo-600 text-white rounded-xl">
           Text Studio
         </button>
-
-        <button
-          onClick={() => setTab("image")}
-          className={`px-6 py-2 rounded-xl ${
-            tab === "image" ? "bg-purple-600 text-white" : "bg-white"
-          }`}
-        >
+        <button onClick={() => setTab("image")} className="px-6 py-2 bg-purple-600 text-white rounded-xl">
           Image Lab
         </button>
       </div>
